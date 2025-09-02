@@ -18,6 +18,7 @@ namespace ECommerce.Web.Models
 
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [Display(Name = "Departamento")]
+        [Range(1, int.MaxValue, ErrorMessage = "Debe seleccionar un departamento.")]
         public int DepartmentId { get; set; }
 
         public virtual Department Department { get; set; }
