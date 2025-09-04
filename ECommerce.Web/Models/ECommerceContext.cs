@@ -7,25 +7,21 @@ using System.Web;
 
 namespace ECommerce.Web.Models
 {
-    public class ECommerceContext :DbContext
+    public class ECommerceContext : DbContext
     {
         public ECommerceContext() : base("DefaultConnection")
         {
-            
         }
 
-        override protected void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Department>()
-            //    .HasMany(e => e.Cities)
-            //    .WithRequired(e => e.Department)
-            //    .WillCascadeOnDelete(false);
-
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
         public DbSet<Department> Departments { get; set; }
 
         public System.Data.Entity.DbSet<ECommerce.Web.Models.City> Cities { get; set; }
+
+        public System.Data.Entity.DbSet<ECommerce.Web.Models.Company> Companies { get; set; }
     }
 }
