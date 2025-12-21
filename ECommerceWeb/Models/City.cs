@@ -18,9 +18,12 @@ namespace ECommerceWeb.Models
 
         [Display(Name = "Departamento")]
         [Required(ErrorMessage = "The field {0} is required.")]
+        [Range(1, int.MaxValue, ErrorMessage = "You must select a {0}.")]
         public int DepartmentId { get; set; }
 
         public virtual Department Department { get; set; }
+
+        public virtual ICollection<Company> Companies { get; set; }
 
 
 
